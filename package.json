@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
-    "train": "nodemon trains.js",
+    "train": "node trains.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sam",
   "license": "ISC",
   "dependencies": {
+    "moment": "^2.29.4",
     "nodemon": "^2.0.22"
   }
 }
