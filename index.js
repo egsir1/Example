@@ -28,35 +28,69 @@
 // myAccount.makeDeposit(200000);
 // myAccount.withdrawMoney(700000);
 
+//1. init
+
+// nodeApp.use(express.static("public"));
+// nodeApp.use(express.json());
+// nodeApp.use(express.urlencoded({ extended: true }));
+
+// //2 session
+
+// //3
+
+// nodeApp.set("views", "views");
+// nodeApp.set("view engine", "ejs");
+
+// //4
+// nodeApp.get("/", function (req, res) {
+//   res.send("<h1>Our First Express App!</h1>");
+// });
+
+// nodeApp.get("/hello", function (req, res) {
+//   res.end("<h1>Hello World!</h1>");
+// });
+// nodeApp.get("/gift", function (req, res) {
+//   res.end("<h1>Gifts Page </h1>");
+// });
+
+// const server = http.createServer(nodeApp);
+// let PORT = 3000;
+// server.listen(PORT, function () {
+//   console.log("The server is running successfully on port ", PORT);
+// });
+
+// Reja Application
 const express = require("express");
-const app = express();
+const nodeApp = express();
 
 const http = require("http");
 
-//1. init
+// Kirish code
 
-app.use(express.static("public"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+nodeApp.use(express.static("public"));
+nodeApp.use(express.json());
+nodeApp.use(express.urlencoded({ extended: true }));
 
-//2 session
+// Views code
 
-//3
+nodeApp.set("views", "views");
+nodeApp.set("view engine", "ejs");
 
-app.set("views", "views");
-app.set("view engine", "ejs");
+// Routing code
 
-//4
-
-app.get("/hello", function (req, res) {
-  res.end("<h1>Hello World!</h1>");
-});
-app.get("/gift", function (req, res) {
-  res.end("<h1>Gifts Page</h1>");
+// post function
+nodeApp.post("/create-item", (req, res) => {
+  console.log(req.body);
+  res.json({ test: "success" });
 });
 
-const server = http.createServer(app);
+// get function
+nodeApp.get("/", function (req, res) {
+  res.render("shopping");
+});
+
+const server = http.createServer(nodeApp);
 let PORT = 3000;
 server.listen(PORT, function () {
-  console.log("The server is running successfully on port ", PORT);
+  console.log(`The server is running successfully on port : ${PORT}`);
 });
